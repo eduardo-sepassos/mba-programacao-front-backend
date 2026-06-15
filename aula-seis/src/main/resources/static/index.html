@@ -1,15 +1,41 @@
-<html>
-    <head>
-        <title>Tarefa</title>
-        <link rel="stylesheet" href="main.css">
-        <script type="module" src="main.js"></script>
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viagens</title>
+
+    <link rel="stylesheet" href="main.css">
+    <script type="module" src="main.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Pacotes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Pacotes</h1>
         <div id="placeholder"></div>
         <button id="botao">Carregar</button>
-        <script type="module">
-            import {onLoadPacotes} from './main.js'
-            document.querySelector('#botao').addEventListener('click', onLoadPacotes)
-        </script>
-    </body>
+    </main>
+
+    <footer>
+        <p>
+            Sobre: Este site foi criado para apresentar pacotes de viagens e destinos disponíveis.
+        </p>
+    </footer>
+
+    <script type="module">
+        import { onLoadPacotes } from './main.js'
+
+        document.querySelector('#botao').addEventListener('click', onLoadPacotes)
+    </script>
+</body>
+
 </html>
