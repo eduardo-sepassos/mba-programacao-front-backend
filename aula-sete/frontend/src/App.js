@@ -1,28 +1,48 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import Button from './Button.js';
-import Pacotes from './Pacotes.js';
+import { useState } from "react";
+import styled from "styled-components";
+import Button from "./Button.js";
+import Pacotes from "./Pacotes.js";
 
 const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: system-ui, sans-serif;
+  background: #f5f0e8;
+  color: #0d2340;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 `;
 
-const Header = styled.h1`
-  color: #2c3e50;
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2.5em;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+export const Header = styled.header`
+  background: #0d2340;
+  padding: 5px;
 `;
 
+export const NavList = styled.ul`
+  display: flex;
+  list-style: none;
+  align-items: center;
+`;
+
+export const NavLink = styled.a`
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 4px;
+
+  &:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+`;
 const Controls = styled.div`
-  text-align: center;
   margin-bottom: 30px;
+`;
+const Title = styled.div`
+  text-align: start;
+  padding-left: 20px;
 `;
 
 function App() {
@@ -30,11 +50,26 @@ function App() {
 
   return (
     <Container>
-      <Header>Pacotes de Viagem</Header>
+      <Header>
+        <nav>
+          <NavList>
+            <li>
+              <NavLink href="#">Home</NavLink>
+            </li>
+            <li>
+              <NavLink href="#">Pacotes</NavLink>
+            </li>
+          </NavList>
+        </nav>
+      </Header>
+      <Title>
+        <h1>Pacotes</h1>
+      </Title>
+
+      <Pacotes dados={dados} />
       <Controls>
-        <Button setData={setData}/>
+        <Button setData={setData} />
       </Controls>
-      <Pacotes dados={dados}/>
     </Container>
   );
 }
